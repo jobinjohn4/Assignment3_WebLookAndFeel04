@@ -1,0 +1,471 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Backpack to Europe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.13.3/mermaid.min.js"></script>
+    <style>
+        .about-section {
+            padding: 8rem 7% 2rem;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+        }
+
+            .mission-section p {
+                max-width: 800px;
+                margin: 1rem auto;
+                color: #666;
+                line-height: 1.6;
+            }
+
+        /* Team Section */
+        .team-section {
+            margin-bottom: 4rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+            .team-member:hover {
+                transform: translateY(-5px);
+            }
+
+        .member-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+        }
+
+            .member-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .member-info h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+            .member-social a {
+                color: #2196F3;
+                font-size: 1.2rem;
+                transition: color 0.3s ease;
+            }
+
+                .member-social a:hover {
+                    color: #1976D2;
+                }
+
+        /* Data Model Section */
+        .data-model-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+            .data-model-section h3 {
+                color: #333;
+                margin-bottom: 2rem;
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+        .model-image {
+            width: 100%;
+            overflow-x: auto;
+            padding: 1rem;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Model Description */
+        .model-description {
+            margin-top: 2rem;
+        }
+
+            .model-description h3 {
+                color: #333;
+                margin-bottom: 1rem;
+            }
+
+            .model-description p {
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+
+        .relationships {
+            margin-top: 2rem;
+        }
+
+        .relationship-item {
+            background: rgba(33, 150, 243, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+            .relationship-item h4 {
+                color: #2196F3;
+                margin-bottom: 0.5rem;
+            }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(33, 150, 243, 0.05);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+            .tech-item:hover {
+                transform: translateY(-5px);
+            }
+
+            .tech-item i {
+                font-size: 2rem;
+                color: #2196F3;
+                margin-bottom: 0.5rem;
+            }
+
+            .tech-item p {
+                color: #666;
+                font-size: 0.9rem;
+            }
+
+        /* Footer Styling */
+        .footer {
+            background: #f9f9f9;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        .footer-logo h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .footer-logo span {
+            color: #2196F3;
+        }
+
+        .footer-info p {
+            color: #666;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+
+        <a href="index.html" class="logo">
+            Fly<span>Europe</span>
+        </a>
+
+        <nav class="navbar">
+            <a href="index.html#home">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="bookings.html">Bookings</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="contact.html">Contact</a>
+            <a href="reviews.html">Reviews</a>
+        </nav>
+
+        <div class="icons">
+            <a href="#" class="fas fa-user"></a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2 class="heading">About <span>Us</span></h2>
+
+        <div class="about-container">
+            <!-- Mission Section -->
+            <div class="mission-section">
+                <h3>Our Mission</h3>
+                <p>At FlyEurope, we're dedicated to making European travel accessible, exciting, and memorable for everyone. Our platform combines cutting-edge technology with personalized service to create seamless travel experiences.</p>
+            </div>
+
+            <!-- Team Section -->
+            <div class="team-section">
+                <h3>Our Team</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-img">
+                            <img src="/api/placeholder/150/150" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h3>Jobin John</h3>
+                            <p>Frontend Developer</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-img">
+                            <img src="/api/placeholder/150/150" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h3>Pavan Teja Allenki</h3>
+                            <p>Backend Developer</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-img">
+                            <img src="/api/placeholder/150/150" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h3>Rohit Vadlala</h3>
+                            <p>UI/UX Designer</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Model Section -->
+            <div class="data-model-section">
+                <h3>Data Model</h3>
+                <div class="model-image">
+                    <div class="mermaid">
+                        erDiagram
+                        %% Relationships with labels
+                        USERS ||--o{ BOOKINGS : makes
+                        DESTINATIONS ||--o{ BOOKINGS : includes
+                        BOOKINGS ||--o{ REVIEWS : has
+
+                        %% Users Table
+                        USERS {
+                        int user_id PK "primary key"
+                        string name "user's full name"
+                        string email "user's email"
+                        string password "hashed password"
+                        timestamp created_at "account creation time"
+                        }
+
+                        %% Destinations Table
+                        DESTINATIONS {
+                        int destination_id PK "primary key"
+                        string name "destination name"
+                        string country "destination country"
+                        string description "detailed description"
+                        decimal price "base price"
+                        string image_url "destination image"
+                        }
+
+                        %% Bookings Table
+                        BOOKINGS {
+                        int booking_id PK "primary key"
+                        int user_id FK "references Users"
+                        int destination_id FK "references Destinations"
+                        date travel_date "departure date"
+                        int travelers "number of travelers"
+                        decimal total_price "total booking cost"
+                        string status "booking status"
+                        timestamp created_at "booking time"
+                        }
+
+                        %% Reviews Table
+                        REVIEWS {
+                        int review_id PK "primary key"
+                        int booking_id FK "references Bookings"
+                        int rating "1-5 star rating"
+                        text comment "review text"
+                        timestamp created_at "review time"
+                        }
+                    </div>
+                </div>
+
+                <div class="model-description">
+                    <h3>Database Schema</h3>
+                    <p>Our application uses a normalized relational database design with the following key relationships:</p>
+
+                    <div class="relationships">
+                        <div class="relationship-item">
+                            <h4>Users to Bookings (1:N)</h4>
+                            <p>A user can make multiple bookings, but each booking belongs to one user.</p>
+                        </div>
+
+                        <div class="relationship-item">
+                            <h4>Destinations to Bookings (1:N)</h4>
+                            <p>A destination can be included in multiple bookings, but each booking is for one destination.</p>
+                        </div>
+
+                        <div class="relationship-item">
+                            <h4>Bookings to Reviews (1:N)</h4>
+                            <p>A booking can have multiple reviews (for different aspects), but each review belongs to one booking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack Section -->
+            <div class="tech-stack">
+                <h3>Technology Stack</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <p>HTML5</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <p>CSS3</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-js"></i>
+                        <p>JavaScript</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Chart.js</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <p>MySQL</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-git-alt"></i>
+                        <p>Git</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Fly<span>Europe</span></h3>
+            </div>
+            <div class="footer-info">
+                <p>© 2024 FlyEurope. All rights reserved.</p>
+                <p>Contact: info@flyeurope.com | +123-456-7890</p>
+                <p>Address: London, UK - 400104</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Mermaid with custom theme
+        mermaid.initialize({
+            theme: 'default',
+            er: {
+                useMaxWidth: false,
+                entityPadding: 15,
+                fontSize: 14,
+                backgroundColor: '#f8f8ff',
+                entityColors: ['#e6e6fa'],
+                relationshipColors: ['#333'],
+                titleBackground: '#e6e6fa'
+            },
+            securityLevel: 'loose',
+            startOnLoad: true
+        });
+    </script>
+</body>
+</html>
